@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b500d107bf8f0794db1af7cd859bbcab, type: 3}
+  m_Name: HandgunData
+  m_EditorClassIdentifier: 
+  _name: Shadow 2
+  _description:
+  - A semi-automatic pistol. Fires 9mm ammunition from a 17-round magazine. Easy
+    to use, high rate of fire. Low damage, but large magazine capacity and high rate
+    of fire.
+  _sprite: {fileID: 8069104947436400928, guid: 165b995a14f585740a296bb603c8371f, type: 3}
