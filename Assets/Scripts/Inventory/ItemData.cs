@@ -16,4 +16,9 @@ public class ItemData : ScriptableObject
 
     [SerializeField] private Image _sprite;
 
+    public bool equip;
+    public bool use;
+    public bool inspect;
+    public bool combine;
+    public bool drop;
 }

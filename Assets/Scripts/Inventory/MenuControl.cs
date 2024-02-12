@@ -3,11 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using TMPro;
+using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 public class MenuControl : MonoBehaviour
 {
     public GameObject map;
-    public void ExitGame()
+    private void ExitGame()
     {
         Application.Quit();
     }
@@ -18,7 +20,15 @@ public class MenuControl : MonoBehaviour
         map.SetActive(true);
         GameManager.instance.GetComponent<GameManager>().canvas.SetActive(false);
     }
-    
+
+    public Button equip;
+    public Button use;
+    public Button inspect;
+    public Button combine;
+    public Button drop;
+    public Button[] menuButtons;
+    public List<bool> menuBool;
+
     [SerializeField] private TMP_Text _itemNameText;
     [SerializeField] private TMP_Text _itemDescriptionText;
 
@@ -33,6 +43,11 @@ public class MenuControl : MonoBehaviour
 
         _itemNameText.SetText(selectedSlot._itemData.Name);
         _itemDescriptionText.SetText(selectedSlot._itemData.Description[0]);
+        menuBool.Add(selectedSlot._itemData.equip);
+        menuBool.Add(selectedSlot._itemData.use);
+        menuBool.Add(selectedSlot._itemData.inspect);
+        menuBool.Add(selectedSlot._itemData.combine);
+        menuBool.Add(selectedSlot._itemData.drop);
     }
 
 

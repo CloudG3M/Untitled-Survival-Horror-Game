@@ -6,8 +6,10 @@ using UnityEngine.UI;
 
 public class CharacterTankController : MonoBehaviour
 {
-    private string _item;
+    public bool _iteminRange;
+    private string _item; 
     public GameObject _fuck;
+    public GameObject _pickupObject;
 
     [SerializeField] private float _movespeed = 2f;
     [SerializeField] private float _turnspeed = 30f;
@@ -62,17 +64,22 @@ public class CharacterTankController : MonoBehaviour
         {
             _movespeed = 2f;
         }
+
+        //GameObject _fuck;
+        if (_iteminRange && _pickupObject != null && Input.GetKeyDown(KeyCode.E))
+        {
+            //GameManager.instance.GetComponent<GameManager>()._selectedItem = coll.gameObject.GetComponent<HandgunScript>()._name;
+            //_fuck = GameObject.Find(GameManager.instance.GetComponent<GameManager>()._slotNum.ToString());
+            _fuck.GetComponent<ItemSlot>()._itemData = GameManager.instance.GetComponent<GameManager>()._selectedItem;
+            _fuck.GetComponent<ItemSlot>().invUpdate();
+            Destroy(_pickupObject);
+        }
     }
 
-    private void OnTriggerEnter(Collider coll)
+    private void OnTriggerStay(Collider coll)
     {
-        //GameObject _fuck;
-        if (coll.tag == "Item")
-        GameManager.instance.GetComponent<GameManager>()._selectedItem = coll.gameObject.GetComponent<HandgunScript>()._name;
-        //_fuck = GameObject.Find(GameManager.instance.GetComponent<GameManager>()._slotNum.ToString());
-        _fuck.GetComponent<ItemSlot>()._itemData = GameManager.instance.GetComponent<GameManager>()._selectedItem;
-        _fuck.GetComponent<ItemSlot>().invUpdate();
-        Destroy(coll.gameObject);
+       
+        
     }
 
 }
