@@ -16,3 +16,8 @@ MonoBehaviour:
   _description:
   - Wonder what this goes to
   _sprite: {fileID: 3874398399748873819, guid: 4e26247ce08bcad45abc6b0c2e5af102, type: 3}
+  equip: 0
+  use: 1
+  inspect: 1
+  combine: 1
+  drop: 1

@@ -16,3 +16,8 @@ MonoBehaviour:
   _description:
   - Just a plain old medkit, should heal me up a decent amount
   _sprite: {fileID: 8219678692517596820, guid: 499c180d782837841b384f57b7bff440, type: 3}
+  equip: 0
+  use: 1
+  inspect: 1
+  combine: 1
+  drop: 1

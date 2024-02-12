@@ -18,3 +18,8 @@ MonoBehaviour:
     to use, high rate of fire. Low damage, but large magazine capacity and high rate
     of fire.
   _sprite: {fileID: 8069104947436400928, guid: 165b995a14f585740a296bb603c8371f, type: 3}
+  equip: 1
+  use: 0
+  inspect: 1
+  combine: 0
+  drop: 1
