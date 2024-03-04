@@ -24,6 +24,8 @@ public class MenuControl : MonoBehaviour
     private void Awake()
     {
         menuButtons = new Button[] { equip, use, inspect, combine, drop };
+        _itemNameText.SetText(" ");
+        _itemDescriptionText.SetText(" ");
     }
 
     public Button equip;
@@ -65,6 +67,5 @@ public class MenuControl : MonoBehaviour
             }
         }
     }
-
 
 }

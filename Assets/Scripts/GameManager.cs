@@ -35,12 +35,12 @@ public class GameManager : MonoBehaviour
             if (canvas.activeInHierarchy == false)
             {
                 canvas.SetActive(true);
-                player.GetComponent<CharacterTankController>().enabled = false;
+                player.GetComponent<PlayerController>().enabled = false;
             }
             else
             {
                 canvas.SetActive(false);
-                player.GetComponent<CharacterTankController>().enabled = true;
+                player.GetComponent<PlayerController>().enabled = true;
             }
         }
     }
