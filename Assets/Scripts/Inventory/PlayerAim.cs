@@ -6,10 +6,30 @@ public class PlayerAim : MonoBehaviour
 {
     public float rotationSpeed = 5f;
     public bool isAimingDownSights = false;
+    public Transform gunBarrel;
+    public float bulletSpeed = 10f;
+    public GameObject bulletPrefab;
 
     public void SetAiming(bool isAiming)
     {
         isAimingDownSights = isAiming;
+    }
+
+    public void Update()
+    {
+        if (isAimingDownSights && Input.GetMouseButton(0))
+        {
+            Shoot();
+        }
+    }
+
+    public void Shoot()
+    {
+        if (isAimingDownSights)
+        {
+            GameObject bullet = Instantiate(bulletPrefab, gunBarrel.position, gunBarrel.rotation);
+            bullet.GetComponent<Rigidbody2D>().velocity = gunBarrel.right * bulletSpeed;
+        }
     }
 
     public void AimWithMouse()

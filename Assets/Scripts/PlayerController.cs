@@ -24,6 +24,7 @@ public class PlayerController : MonoBehaviour
     public List<GameObject> slots = new List<GameObject>();
     private GameObject[] ItemSlots;
     private int openSlot = 0;
+    PlayerHealth playerHealth;
 
     private void Awake()
     {
@@ -67,11 +68,6 @@ public class PlayerController : MonoBehaviour
             deceleration = 7f;
             sprintSpeed = 6f;
         }
-        
-        if (Input.GetMouseButton(0))
-        {
-
-        }
 
         if (Input.GetMouseButton(1))
         {
@@ -81,8 +77,7 @@ public class PlayerController : MonoBehaviour
         {
             playerAim.SetAiming(false);
         }
-        
-
+       
         float move = Input.GetAxis("Horizontal");
         bool isSprinting = Input.GetKey(KeyCode.LeftShift);
         //myAnim.SetFloat("speed",Mathf.Abs(move));
@@ -103,7 +98,6 @@ public class PlayerController : MonoBehaviour
             transform.localScale = new Vector3(-1, 1, 1);
         }*/
 
-        
         if (_iteminRange && _pickupObject != null && Input.GetKeyDown(KeyCode.E))
         {
             //GameManager.instance.GetComponent<GameManager>()._selectedItem = coll.gameObject.GetComponent<HandgunScript>()._name;
