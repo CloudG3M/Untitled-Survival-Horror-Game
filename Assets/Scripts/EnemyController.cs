@@ -8,39 +8,38 @@ public class EnemyController : MonoBehaviour
     public Transform target; 
     public float attackRange = 2f; 
     public int damageAmount = 25; 
+    public float attackCooldown = 1f; 
 
     private PlayerHealth playerHealth;
-    private bool hasAttacked = false; 
+    private float nextAttackTime;
 
     void Start()
     {
-        playerHealth = target.GetComponent<PlayerHealth>();
+        playerHealth = target.GetComponent<PlayerHealth>(); 
+        nextAttackTime = Time.time; 
     }
 
     void Update()
     {
+        
         if (Vector3.Distance(transform.position, target.position) <= attackRange)
         {
-            Attack();
-        }
-        else
-        {
-            hasAttacked = false; 
+            
+            if (Time.time >= nextAttackTime)
+            {
+                Attack();
+
+                nextAttackTime = Time.time + attackCooldown;
+            }
         }
     }
 
     void Attack()
     {
-        Debug.Log("Enemy is attacking!");
-        if (!hasAttacked)
+        if (playerHealth != null)
         {
-            Debug.Log("Enemy is dealing damage to the player.");
-            if (playerHealth != null)
-            {
-                playerHealth.TakeDamage(damageAmount);
-            }
-
-            hasAttacked = true;
+            playerHealth.TakeDamage(damageAmount);
+            Debug.Log("Enemy dealt " + damageAmount + " damage to the player.");
         }
     }
 }

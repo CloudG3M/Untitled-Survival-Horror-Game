@@ -568,8 +568,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 804576622}
-  attackRange: 2
+  attackRange: 3
   damageAmount: 25
+  attackCooldown: 1
 --- !u!114 &41596230
 MonoBehaviour:
   m_ObjectHideFlags: 0
